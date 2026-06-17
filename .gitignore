@@ -1,0 +1,47 @@
+# Sources
+sources/
+downloads/
+
+# Build outputs
+build/
+dist/
+out/
+
+# Toolchains
+cross-tools/
+
+# Kernel
+kernel/
+boot/vmlinuz*
+boot/initramfs*
+*.img
+*.iso
+*.qcow2
+
+# Packages
+packages/
+
+# Root filesystem generated
+rootfs/bin/
+rootfs/sbin/
+rootfs/usr/bin/
+rootfs/var/
+rootfs/root/.oh-my-zsh/
+
+# Archives
+*.tar
+*.tar.gz
+*.tar.xz
+*.tar.bz2
+*.zip
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.cmd
+.kernelrelease
+
+# Temp
+tmp/
+cache/

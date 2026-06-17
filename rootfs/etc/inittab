@@ -1,0 +1,13 @@
+# /etc/inittab - BusyBox init configuration for GungnirOS
+
+# Run system initialization first
+::sysinit:/etc/init.d/rcS
+
+# Start an interactive shell on the console (ttyS0 for serial QEMU, tty1 for virtual console)
+ttyS0::respawn:-/bin/sh
+tty1::respawn:-/bin/sh
+
+# Actions on shutdown/reboot
+::ctrlaltdel:/sbin/reboot
+::shutdown:/sbin/swapoff -a
+::shutdown:/bin/umount -a -r

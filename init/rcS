@@ -1,0 +1,26 @@
+#!/bin/sh
+# /etc/init.d/rcS - System initialization script
+
+echo "Initializing GungnirOS system..."
+
+# Mount filesystems listed in fstab
+mount -a
+
+# Start mdev (udev replacement in BusyBox) to dynamically handle devices
+echo "Starting mdev..."
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mdev -s
+
+# Set system hostname
+if [ -f /etc/hostname ]; then
+  hostname -F /etc/hostname
+fi
+
+# Enable loopback network interface
+ifconfig lo 127.0.0.1 up
+
+# Start system logger daemons
+syslogd
+klogd
+
+echo "System initialization complete."
